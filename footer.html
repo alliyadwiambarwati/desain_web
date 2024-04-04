@@ -6,8 +6,18 @@
     <title>situs web</title>
 </head>
 <style>
-    p {
-        color:blue
+    body{
+        background-color: aquamarine;
+    }
+    .flex{
+        display: flex;
+    }
+    .fd-row{
+        flex-direction: row;
+        gap: 100px;
+    }
+    .fd-col{
+        flex-direction: column;
     }
 </style>
     <footer>
@@ -17,12 +27,17 @@
             color: aquamarine;
         }
     </style>
-        <ul>
-            <li>Alliya Dwi Ambarwati - 23441009</li>
-            <li>Adinda Reka Putri - 23441190</li>
-            <li>Kelas : SI-A pagi</li>
-        </ul>
-        <p><a href="https://github.com/alliyadwiambarwati/desain_web/" target="_">Link Github Desain Web</a></p>
-        <p><a href="biodatadiri.html" name="content">Link Biodata Diri</a></p>
+    <body>
+            <div class="flex fd-row">
+                <div class="flex fd-col">
+                    <h1><b>Alliya Dwi Ambarwati <br>23441009</b></h1>
+                    <img src="imglia.jpg.jpeg" weight="200" height="200">
+                </div>
+                    <div class="flex fd-col">
+                        <h1><b>Adinda Reka Putri<br>23441190</b></h1>
+                        <img src="imgdinda.jpg.jpeg" weight="200" height="200" align="right">
+                </div>
+            </div>  
+        </body>
     </footer>
 </html>
