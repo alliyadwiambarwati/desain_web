@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width= , initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script type="text/javascript">
+        var gajiPerHari = 50000;
+        var jamKerja = 25;
+        var gajiPokok = gajiPerHari * jamKerja;
+        var lembur;
+        if (jamKerja > 1 && jamKerja <= 2) {
+            lembur = (jamKerja - 1) * 25000;
+        } else if (jamKerja > 2) {
+            lembur = 2 * 25000 + (jamKerja - 2) * 35000;
+        } else {
+            lembur = 0;
+        }
+        var uangMakan = (jamKerja >= 20) ? 5000 : 0;
+        var gajiTotal = gajiPokok + lembur + uangMakan;
+        document.write("Gaji total: " + gajiTotal);
+    </script>
+</body>
+
+</html>

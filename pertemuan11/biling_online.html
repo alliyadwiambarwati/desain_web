@@ -1,0 +1,29 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Billing Online</title>
+</head>
+<body>
+    <script type="Text/javascript">
+        var jumlahDetik = 10000;
+        var hargaPerDetik = 30;
+        var jumlahPulsaPerDetik = 45;
+        
+        var jumlahPulsa = Math.ceil(jumlahDetik / jumlahPulsaPerDetik);
+        
+        var totalBiaya = jumlahPulsa * hargaPerDetik;
+        
+        var jam = Math.floor(jumlahDetik / 3600);
+        var sisaDetik = jumlahDetik % 3600;
+        var menit = Math.floor(sisaDetik / 60);
+        var detik = sisaDetik % 60;
+        
+        document.write("Total biaya yang harus dibayar :", totalBiaya, "rupiah");
+        document.write("<br>")
+        document.write("Pemakaian :" , jam, "jam" , menit, "menit" , detik, "detik");
+      </script>
+</body>
+</html>

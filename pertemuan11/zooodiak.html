@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zodiac Game</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .container {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .result {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Zodiac Game</h1>
+        <label for="day">Masukkan Tanggal (1-31):</label>
+        <input type="number" id="day" min="1" max="31"><br><br>
+        <label for="month">Masukkan Bulan (1-12):</label>
+        <input type="number" id="month" min="1" max="12"><br><br>
+        <button onclick="showZodiac()">Tampilkan Zodiak</button>
+        <div class="result" id="result"></div>
+    </div>
+
+    <script>
+        function showZodiac() {
+            const day = document.getElementById("day").value;
+            const month = document.getElementById("month").value;
+            const zodiac = getZodiacSign(day, month);
+            const health = getHealthPrediction(zodiac);
+            const love = getLovePrediction(zodiac);
+            const finance = getFinancePrediction(zodiac);
+            const career = getCareerPrediction(zodiac);
+
+            document.getElementById("result").innerHTML = `
+                <h2>Ramalan Zodiak</h2>
+                <p><strong>Zodiak:</strong> ${zodiac}</p>
+                <p><strong>Kesehatan:</strong> ${health}</p>
+                <p><strong>Asmara:</strong> ${love}</p>
+                <p><strong>Keuangan:</strong> ${finance}</p>
+                <p><strong>Karier:</strong> ${career}</p>
+            `;
+        }
+
+        function getZodiacSign(day, month) {
+            if ((month == 1 && day >= 20) || (month == 2 && day <= 18)) return "Aquarius";
+            if ((month == 2 && day >= 19) || (month == 3 && day <= 20)) return "Pisces";
+            if ((month == 3 && day >= 21) || (month == 4 && day <= 19)) return "Aries";
+            if ((month == 4 && day >= 20) || (month == 5 && day <= 20)) return "Taurus";
+            if ((month == 5 && day >= 21) || (month == 6 && day <= 20)) return "Gemini";
+            if ((month == 6 && day >= 21) || (month == 7 && day <= 22)) return "Cancer";
+            if ((month == 7 && day >= 23) || (month == 8 && day <= 22)) return "Leo";
+            if ((month == 8 && day >= 23) || (month == 9 && day <= 22)) return "Virgo";
+            if ((month == 9 && day >= 23) || (month == 10 && day <= 22)) return "Libra";
+            if ((month == 10 && day >= 23) || (month == 11 && day <= 21)) return "Scorpio";
+            if ((month == 11 && day >= 22) || (month == 12 && day <= 21)) return "Sagittarius";
+            if ((month == 12 && day >= 22) || (month == 1 && day <= 19)) return "Capricorn";
+            return "Invalid date";
+        }
+
+        function getHealthPrediction(zodiac) {
+            return "Anda akan merasa bugar dan sehat.";
+        }
+
+        function getLovePrediction(zodiac) {
+            return "Asmara Anda akan penuh kebahagiaan.";
+        }
+
+        function getFinancePrediction(zodiac) {
+            return "Keuangan Anda akan stabil.";
+        }
+
+        function getCareerPrediction(zodiac) {
+            return "Karier Anda akan mengalami kemajuan.";
+        }
+    </script>
+</body>
+</html>

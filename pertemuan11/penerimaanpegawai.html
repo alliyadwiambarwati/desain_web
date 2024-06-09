@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Formulir Pendaftaran Pegawai</h2>
+  <form id="formpendaftaran">
+    <label for="jeniskelamin">Jenis Kelamin:</label>
+    <select id="jeniskelamin">
+      <option value="laki-laki">Laki-laki</option>
+      <option value="perempuan">Perempuan</option>
+    </select><br><br>
+
+    <label for="tinggiBadan">Tinggi Badan (cm):</label>
+    <input type="number" id="tinggiBadan"><br><br>
+
+    <label for="beratBadan">Berat Badan (kg):</label>
+    <input type="number" id="beratBadan"><br><br>
+
+    <label for="ipk">IPK:</label>
+    <input type="number" step="0.01" id="ipk" min="0" max="4"><br><br>
+
+    <label for="pendidikan">Pendidikan Terakhir:</label>
+    <select id="pendidikan">
+      <option value="D3">D3</option>
+      <option value="S1">S1</option>
+    </select><br><br>
+
+    <button type="button" onclick="cekKelayakan()">Cek Kelayakan</button>
+  </form>
+
+  <p id="hasil"></p>
+
+  <script type="text/javascript">
+    function cekKelayakan() {
+      var jeniskelamin = document.getElementById("jeniskelamin").value;
+      var tinggiBadan = parseInt(document.getElementById("tinggiBadan").value);
+      var beratBadan = parseInt(document.getElementById("beratBadan").value);
+      var ipk = parseFloat(document.getElementById("ipk").value);
+      var pendidikan = document.getElementById("pendidikan").value;
+      
+      var beratIdeal = tinggiBadan - 110;
+      var hasil = "";
+
+      if (jeniskelamin === "laki-laki" && tinggiBadan >= 170 && tinggiBadan <= 179 && beratBadan === beratIdeal && ipk >= 3 && ipk <= 4 && (pendidikan === "D3" || pendidikan === "S1")) {
+        hasil = "Laki-laki memenuhi syarat";
+      } else if (jeniskelamin === "perempuan" && tinggiBadan >= 160 && tinggiBadan <= 170 && beratBadan === beratIdeal && ipk >= 3 && ipk <= 4 && (pendidikan === "D3" || pendidikan === "S1")) {
+        hasil = "Perempuan memenuhi syarat";
+      } else {
+        hasil = "Tidak memenuhi syarat";
+      }
+
+      document.getElementById("hasil").innerText = hasil;
+    }
+  </script>
+</body>
+</html>
